@@ -1,0 +1,29 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get"
+      ],
+      "route": "Ratings/{userId}"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "documentDB",
+      "name": "client",
+      "databaseName": "BFYOC",
+      "collectionName": "Ratings",
+      "sqlQuery": "SELECT * FROM c WHERE c.userId = {userId}",
+      "connection": "serverlessvianey_DOCUMENTDB",
+      "direction": "in"
+    }
+  ],
+  "disabled": false
+}

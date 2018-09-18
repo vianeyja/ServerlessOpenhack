@@ -1,0 +1,30 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "name": "req",
+      "type": "httpTrigger",
+      "direction": "in",
+      "methods": [
+        "get",
+        "post"
+      ],
+      "route": "Rating/{id}"
+    },
+    {
+      "name": "$return",
+      "type": "http",
+      "direction": "out"
+    },
+    {
+      "type": "documentDB",
+      "name": "client",
+      "databaseName": "BFYOC",
+      "collectionName": "Ratings",
+      "connection": "serverlessvianey_DOCUMENTDB",
+      "direction": "in",
+      "id": "{id}"
+    }
+  ],
+  "disabled": false
+}
